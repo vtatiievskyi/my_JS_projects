@@ -1,0 +1,23 @@
+//Ввод единицы измерения: "km" - километры, "ho"- часы,"kg"- килограммы
+
+let measure = "km"
+
+//Ввод значения для конвертации
+
+let value = 1
+
+//Код для вычисления
+
+switch(measure){
+    case "km":
+        console.log(value + " км це " + value*1000 + " м")
+        break;
+    case "ho":
+        console.log(value + " г це " + value*60 +  " хв")
+        break;
+    case "kg":
+        console.log(value + " кг це " + value*1000 +  " грам")
+        break;
+    default:
+      console.log("Ви ввели невірну одиницю виміру")
+}
