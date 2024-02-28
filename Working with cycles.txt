@@ -1,0 +1,75 @@
+Задача 1
+
+//Программа для вывода прямоугольного треугольника из выбранных символов
+
+let height, symbol, result = ""
+
+function drawTriangle(height, symbol){
+  for(let i=0; i < height; i++){
+    result = result + symbol
+    console.log(result)
+    console.log("")
+  }
+}
+
+let j = 0
+
+function drawTriangle2(height, symbol){
+  while(j < height){
+    result = result + symbol
+    console.log(result)
+    console.log("")
+    j++
+  }
+}
+
+//1-й способ (для запуска нужно убрать // перед функцией, если присутствуют)
+drawTriangle(5, "+")
+
+//2-й способ (для запуска нужно убрать // перед функцией, если присутствуют)
+//drawTriangle2(10, "-")
+
+
+
+
+
+
+
+
+
+Задача 2
+
+//Программа для подсчёта суммы всех чисел от 1 до 100 включительно, которые не кратны 3
+
+let total = 0;
+
+for(let i = 1; i <= 100; i++){
+  if(i%3 !== 0){
+    total = total + i;
+  }
+}
+console.log(total)
+
+
+
+
+
+
+
+
+
+Задача 3
+
+//Функция для возведения числа в степень
+let start, rate, result = 1
+
+function exponention(start, rate){
+  for(let i=1;i<=rate;i++){
+    result = start * result 
+  }
+}
+
+//Первый аргумент это число, второй - степень в которую нужно возвести
+exponention(2,5)
+
+console.log(result)
