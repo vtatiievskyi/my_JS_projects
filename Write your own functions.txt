@@ -1,0 +1,77 @@
+Задача 1
+
+let x
+
+//Контрольная проверка сходятся ли значения с оригинальной функцией
+//console.log("Контрольная проверка " + isNaN(x))
+
+//Функция-альтернатива isNaN
+
+let showResult = altIsNaN(10 / 'qwe')
+
+console.log(showResult)
+
+function altIsNaN(x){
+if(Number(x) !== Number(x)){//Так как NaN не равен ничему, даже самому себе
+    return true
+}else{
+    return false
+}}
+
+Задача 2
+
+let raw, symbol, quantity, position, count = 0
+
+/*Ввод данных (строка для добавления, символ, кол-во, позиция для
+вставки (false в конец, true в начало*/
+pad("qwert", "+", 6, true)
+
+function pad(raw, symbol, quantity, position){
+
+count = raw.length
+
+  switch(position){
+    case false:
+    while((quantity - count) > 0){
+      raw = raw + symbol
+      count++
+    }
+    case true:
+    while((quantity - count) > 0){
+      raw = symbol + raw
+      count++
+    }
+    console.log(raw)
+  }
+}
+
+Задача 3
+
+let count = 0, even = 0, odd = 0, stop
+
+//Как аргумент необходимо ввести желаемое колличество генерируемых чисел
+checkProbabilityTheory(150)
+
+function checkProbabilityTheory(stop){
+
+while(count < stop){
+  var rnd = Math.random();
+  rnd *= 1000; //устанавливаем потолок до 1000 включительно
+  rnd = Math.round(rnd);
+  if(rnd < 100){ //устанавливаем нижнюю границу в 100
+    continue
+  }
+  if(rnd%2 == 0){//подсчёт чётных чисел
+  even++
+  } else{//подсчёт нечётных чисел
+    odd++
+  }
+  count++
+  }
+  console.log("Кількість згенерованих чисел: " + count)
+  console.log("Парних чисел: " + even)
+  console.log("Не парних чисел: " + odd)
+  console.log("Співвідношення парних чисел до непарних: " + 
+  Math.round((even / count) * 100) + "% парних та " + 
+  Math.round((odd / count) * 100) + "% не парних")}
+
