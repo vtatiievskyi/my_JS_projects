@@ -1,0 +1,13 @@
+let initial = "Yram sekil ot ecnad"
+let beforeChangeCase = 0
+
+//Как аргумент необходимо передать строку для реверса
+revertedPhrases(initial)
+
+function revertedPhrases(initial){
+    beforeChangeCase = initial.split(" ").reverse().join(" ").split("").reverse().join("")
+    lowerCase = beforeChangeCase.toLowerCase()
+    final = lowerCase[0].toUpperCase() + lowerCase.slice(1)
+    console.log(final)}
+
+
