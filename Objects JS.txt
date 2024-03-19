@@ -1,0 +1,78 @@
+1 задание
+
+let lotrCharacter = {
+  name: "Frodo Baggins",
+  race: "Hobbit",
+  weapon: "Sting",
+  getInfo(){
+    for (let i in lotrCharacter){
+    if(typeof lotrCharacter[i] === "function"){
+      continue
+    } 
+    console.log(i + ': ' + lotrCharacter[i])
+  }
+}}
+
+lotrCharacter.getInfo()
+console.log("-------------")
+lotrCharacter.age = 51
+lotrCharacter.getInfo()
+
+2 задание
+
+let sum = 0, transient, transient2, transient3 = 0, min = Infinity, max = 0
+
+var services = {
+	"стрижка": "60 грн",
+	"гоління": "80 грн",
+	"Миття голови": "100 грн",
+  price(){
+      for (let i in services){
+      if(typeof services[i] === "function"){
+        continue
+      } 
+      transient = services[i].substring(0, services[i].length - 4)
+      sum = sum + Number(transient)
+      
+  }
+  console.log("Загальна вартість наданих послуг: " + sum + " грн")
+  sum = 0
+},
+minPrice(){
+  for (let i in services){
+    if(typeof services[i] === "function"){
+      continue
+    } 
+  transient2 = services[i].substring(0, services[i].length - 4)
+  if (Number(transient2) < min){
+    min = transient2
+  }}
+  console.log("Мінімальна вартість послуги: " + min + " грн")
+},
+maxPrice(){
+  for (let i in services){
+    if(typeof services[i] === "function"){
+      continue
+    } 
+  transient3 = services[i].substring(0, services[i].length - 4)
+  if (Number(transient3) > max){
+    max = transient3
+  }}
+  console.log("Максимальна вартість послуги: " + max + " грн")
+}
+}
+
+console.log('Данные до добавления дополнительной услуги:\n')
+
+services.price()
+services.minPrice()
+services.maxPrice()
+
+services['Розбити скло'] = "200 грн";
+
+console.log('\nДанные после добавления дополнительной услуги:\n')
+
+services.price()
+services.minPrice()
+services.maxPrice()
+
