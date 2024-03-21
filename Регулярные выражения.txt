@@ -1,0 +1,36 @@
+1 задание
+
+var str = миші,a
+var re = /^[^a^A]{6,}$/
+
+console.log((Строка содержит минимум 6 символов без а А  + re.test(str)))
+
+2 задание
+
+var arr = [
+    {
+        userName:"Test",
+        lastName:"Test",
+        email:"test.test@gmail.com"
+    },
+    {
+        userName:"Dmitro",
+        lastName:"Porohov",
+        email:"dmitro.porohov@yahoo.com"
+    },
+    {
+        userName:"Andrii",
+        lastName:"",
+        email:"andrii@mail.ru" // Нам такі не підходять
+    },
+];
+
+var emails = [];
+let pattern = /^[a-zA-Z0-9]{1,}\.?[a-zA-Z0-9]{1,}@(yahoo\.com|gmail\.com)$/
+
+for (var i = 0; i < arr.length; i++) {
+    if (pattern.test(arr[i].email) == true){
+    emails.push(arr[i].email);}
+}
+
+console.log(emails);//Вывод массива только с адресами, которым мы доверяем
