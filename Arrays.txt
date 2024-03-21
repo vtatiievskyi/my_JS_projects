@@ -1,0 +1,97 @@
+1 задание
+
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+arr.sort(myBlend);
+console.log("after my sort: " + arr)
+
+function myBlend(a, b) {
+    return Math.random() * 2 - 1 //Число от -1 до 1
+}
+
+2 задание
+
+const company = {
+  name: 'Велика Компанія',
+  type:'Головна компанія',
+  platform: 'Платформа для продажу квитків',
+  sellsSolution: 'Рішення для продажу квитків',
+  clients: [
+      {
+          name: 'Клієнт 1',
+          type: 'subCompany',
+          uses: 'ПО для продажу квитків',
+          sells: 'Рішення для продажу квитків',
+          partners: [
+              {
+                  name: 'Клієнт 1.1',
+                  type: 'subSubCompany',
+                  uses: 'Рішення для продажу квитків',
+                  sells: 'Рішення для продажу квитків',
+              },
+              {
+                  name: 'Клієнт 1.2',
+                  type: 'subSubCompany',
+                  uses: 'Рішення для продажу квитків',
+                  sells: 'Рішення для продажу квитків',
+                  partners: [
+                      {
+                          name: 'Клієнт 1.2.3',
+                          type: 'subSubCompany',
+                          uses: 'Рішення для продажу квитків',
+                          sells: 'Рішення для продажу квитків',
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          name: 'Клієнт 2',
+          type: 'subCompany',
+          uses: 'ПО для продажу квитків',
+          sells: 'Рішення для продажу квитків'
+      }
+  ]
+};
+
+function createFindFunction(company) {
+  function findValueByKey(companyName, company) {
+      if (company.name === companyName) {
+          // Повертаємо об'єкт без полів partners та clients, якщо вони існують
+          const { partners, clients, ...filteredCompany } = company;
+          return filteredCompany;
+      }
+      if (company.clients) {
+          for (let client of company.clients) {
+              const result = findValueByKey(companyName, client);
+              if (result) {
+                  return result;
+              }
+          }
+      }
+      if (company.partners) {
+          for (let partner of company.partners) {
+              const result = findValueByKey(companyName, partner);
+              if (result) {
+                  return result;
+              }
+          }
+      }
+      return null;
+  }
+  return function(companyName) {
+      return findValueByKey(companyName, company);
+  };
+}
+
+// Створюємо функцію пошуку для конкретного об'єкта company
+const findValueInCompany = createFindFunction(company);
+
+// Приклад виклику функції
+const companyName = 'Клієнт 1.2.3';//Сюди вводити назву компанії, яку шукаєте
+const foundCompany = findValueInCompany(companyName);
+
+if (foundCompany) {
+  console.log('Знайдено компанію:', foundCompany);
+} else {
+  console.log('Компанію з таким іменем не знайдено.');
+}
